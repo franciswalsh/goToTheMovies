@@ -60,15 +60,21 @@ public class TheaterController {
         for (int i = 0; i < nowPlayingMovies.size(); i++){
             preRandomIntegers.add(i);
         }
+        
         Random random = new Random();
         Collections.shuffle(preRandomIntegers);
-        while(randomIntegers.size() <= 5) {
-            for (int i : preRandomIntegers) {
-                if (Math.random() >= (5 / (preRandomIntegers.size()))) {
+
+
+
+        for (int i : preRandomIntegers) {
+            if (Math.random() >= (5 / (preRandomIntegers.size()))) {
                     randomIntegers.add(i);
-                }
+            }
+            if (randomIntegers.size() >= 5){
+                break;
             }
         }
+
         for (int i : randomIntegers){
             fiveMovies.add(nowPlayingMovies.get(i));
         }
